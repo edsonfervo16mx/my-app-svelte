@@ -3,6 +3,7 @@
     let { data }: PageProps = $props();
 
     console.log("Users:", data.users);
+    console.log("Data test:", data.data_test);
 
     let profile = $state({
         name: "John Doe",

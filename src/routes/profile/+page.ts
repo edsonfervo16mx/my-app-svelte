@@ -1,10 +1,17 @@
 import type { PageLoad } from './$types';
 
-export const load: PageLoad = (async ({ fetch }) => {
+export const load: PageLoad = (async ({ data, fetch }) => {
     console.log("Loading users...");
+
     const res = await fetch("https://jsonplaceholder.typicode.com/users");
-    const data = await res.json();
+    const payload = await res.json();
+    
+    if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
     return {
-        users: data,
+        users: payload,
+        data_test: data.data_test,
     };
 });
