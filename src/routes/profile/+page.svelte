@@ -116,3 +116,4 @@
         {/each}
     </ul>
 </div>
+<pre>{JSON.stringify(data.data_test, null, 2)}</pre>
