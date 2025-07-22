@@ -1,7 +1,9 @@
 import type { PageServerLoad } from './$types';
 import { config } from '$lib/config';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({cookies}) => {
+    const sessionid = cookies.get('sessionid');
+    console.log(sessionid);
 
     const credentials = btoa(`${config.BASIC_USERNAME_API}:${config.BASIC_PASSWORD_API}`);
 
