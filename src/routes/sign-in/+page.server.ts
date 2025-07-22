@@ -9,12 +9,13 @@ export const actions = {
     //     const password = formData.get('password');
     //     console.log(email, password);
 	// }
-    login: async (event) => {
+    login: async ({request,  cookies }) => {
         console.log("login");
-        const formData = await event.request.formData();
+        const formData = await request.formData();
         const email = formData.get('email');
         const password = formData.get('password');
         console.log(email, password);
+        cookies.set('sessionid', email as string, { path: '/' });
     },
     register: async (event) => {
         console.log("register");
